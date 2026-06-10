@@ -29,7 +29,7 @@ def sign_in() -> str | None:
     hashed_password = password_hash(password, timestamp)
     try:
         session_id = requests.get(
-            "https://thisdlstu.schoolis.cn/api/MemberShip/GetStudentCaptchaForLogin",
+            "https://thisdlstf.schoolis.cn//api/MemberShip/GetStudentCaptchaForLogin",
             headers=headers
         ).cookies.get('SessionId')
     except ValueError:
@@ -40,7 +40,7 @@ def sign_in() -> str | None:
     print("Trying to login!")
 
     login_res = requests.post(
-        "https://thisdlstu.schoolis.cn/api/MemberShip/Login?captcha=",
+        "https://thisdlstf.schoolis.cn/api/MemberShip/Login?captcha=",
         headers=headers,
         cookies={
             "SessionId": session_id,
